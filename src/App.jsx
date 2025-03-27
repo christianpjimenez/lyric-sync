@@ -1,33 +1,43 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className="title">
+          LyricSync
+        </h1>
       </div>
-      <h1>Vite + React</h1>
+      
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          I can't remember when you looked at me and cried
+        </p>
+        <p>
+          Said something broke inside of you <br></br>
+          Were my best friend
+          Whatever come our way, you know I'm your girl 'til the end
+
+          And when I'll finally go away
+          I know you'll look for me one day
+
+          When you let love down
+          Oh, you let love down
+          I don't have to remind you, but you know that I'm around
+          When you let love down
+          Oh, you let me down
+          Get a little let down
+          Let it down
+
+          I can't remember when you put your hand on mine
+          But couldn't play in time
+          When we, yeah, when we're not together
+          Just sing a little song
+          Blueberry kisses forever
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
