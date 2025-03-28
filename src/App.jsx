@@ -3,6 +3,8 @@ import './App.css'
 
 function App() {
 
+  const [lyrics, setLyrics] = useState("");
+
   return (
     <>
       <div>
@@ -12,30 +14,25 @@ function App() {
       </div>
       
       <div className="card">
+        <label htmlFor="lyricsArea">Lyrics:</label>
+        <br />
+        <textarea
+          id="lyricsArea"
+          placeholder="Enter lyrics here..."
+          value={lyrics}
+          onChange={(e) => setLyrics(e.target.value)}
+          rows="6"
+          cols="30"
+        />
         <p>
-          I can't remember when you looked at me and cried
-        </p>
-        <p>
-          Said something broke inside of you <br></br>
-          Were my best friend
-          Whatever come our way, you know I'm your girl 'til the end
-
-          And when I'll finally go away
-          I know you'll look for me one day
-
-          When you let love down
-          Oh, you let love down
-          I don't have to remind you, but you know that I'm around
-          When you let love down
-          Oh, you let me down
-          Get a little let down
-          Let it down
-
-          I can't remember when you put your hand on mine
-          But couldn't play in time
-          When we, yeah, when we're not together
-          Just sing a little song
-          Blueberry kisses forever
+          {lyrics
+          ? lyrics.split('\n').map((line, index) => (
+            <span key={index}>
+              {line}
+              <br />
+            </span>
+          ))
+        : "Type the lyrics to see them here."}
         </p>
       </div>
     </>
