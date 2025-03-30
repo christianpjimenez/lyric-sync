@@ -4,6 +4,8 @@ import './App.css'
 function App() {
 
   const [lyrics, setLyrics] = useState("");
+  const [songTitle, setSongTitle] = useState("");
+  const [artist, setArtist] = useState("");
 
   return (
     <>
@@ -14,6 +16,20 @@ function App() {
       </div>
       
       <div className="card">
+        <input
+          type="text"
+          placeholder="Enter song title..."
+          value={songTitle}
+          onChange={(e) => setSongTitle(e.target.value)}
+        />
+        <br />
+        <input 
+          type="text"
+          placeholder="Enter artist or band name..."
+          value={artist}
+          onChange={(e) => setArtist(e.target.value)}
+        />
+        <br />
         <label htmlFor="lyricsArea">Lyrics:</label>
         <br />
         <textarea
@@ -24,6 +40,17 @@ function App() {
           rows="6"
           cols="30"
         />
+
+        <h2 className='song-title'>
+          <strong>
+            {songTitle || "Untitled"} 
+          </strong>
+        </h2>
+        <h3 className='artist-name'>
+          <strong>
+            {artist || "Unknown artist"} 
+          </strong>
+        </h3>
         <p>
           {lyrics
           ? lyrics.split('\n').map((line, index) => (
