@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Header from './Header.jsx'
 
 function App() {
 
@@ -9,11 +10,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1 className="title">
-          LyricSync
-        </h1>
-      </div>
+      <Header />
       
       <div className="card">
         <input
