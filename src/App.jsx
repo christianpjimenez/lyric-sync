@@ -4,9 +4,15 @@ import Header from './Header.jsx'
 
 function App() {
 
-  const [lyrics, setLyrics] = useState("");
+  const [song, setSong] = useState({
+    title: "Untitled",
+    artist: "Unknown artist",
+    lyrics: "Type the lyrics to see them here."
+  });
+
+  /*const [lyrics, setLyrics] = useState("");
   const [songTitle, setSongTitle] = useState("");
-  const [artist, setArtist] = useState("");
+  const [artist, setArtist] = useState("");*/
 
   return (
     <>
@@ -16,15 +22,15 @@ function App() {
         <input
           type="text"
           placeholder="Enter song title..."
-          value={songTitle}
-          onChange={(e) => setSongTitle(e.target.value)}
+          value={song.title}
+          onChange={(e) => setSong({...song, title: e.target.value})}
         />
         <br />
         <input 
           type="text"
           placeholder="Enter artist or band name..."
-          value={artist}
-          onChange={(e) => setArtist(e.target.value)}
+          value={song.artist}
+          onChange={(e) => setSong({...song, artist: e.target.value})}
         />
         <br />
         <label htmlFor="lyricsArea">Lyrics:</label>
@@ -32,25 +38,25 @@ function App() {
         <textarea
           id="lyricsArea"
           placeholder="Enter lyrics here..."
-          value={lyrics}
-          onChange={(e) => setLyrics(e.target.value)}
+          value={song.lyrics}
+          onChange={(e) => setSong({...song, lyrics: e.target.value})}
           rows="6"
           cols="30"
         />
 
         <h2 className='song-title'>
           <strong>
-            {songTitle || "Untitled"} 
+            {song.title || "Untitled"} 
           </strong>
         </h2>
         <h3 className='artist-name'>
           <strong>
-            {artist || "Unknown artist"} 
+            {song.artist || "Unknown artist"} 
           </strong>
         </h3>
         <p>
-          {lyrics
-          ? lyrics.split('\n').map((line, index) => (
+          {song.lyrics
+          ? song.lyrics.split('\n').map((line, index) => (
             <span key={index}>
               {line}
               <br />
