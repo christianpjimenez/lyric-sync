@@ -1,4 +1,4 @@
-function LyricInput(song, setSong) {
+function LyricInput({song, setSong}) {
     return (
         <div className="card">
         <input
