@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './Header.jsx'
+import LyricInput from './LyricInput.jsx';
 
 function App() {
 
@@ -10,39 +11,13 @@ function App() {
     lyrics: "Type the lyrics to see them here."
   });
 
-  /*const [lyrics, setLyrics] = useState("");
-  const [songTitle, setSongTitle] = useState("");
-  const [artist, setArtist] = useState("");*/
-
   return (
     <>
       <Header />
+
+      <LyricInput song={song} setSong={setSong} />
       
       <div className="card">
-        <input
-          type="text"
-          placeholder="Enter song title..."
-          value={song.title}
-          onChange={(e) => setSong({...song, title: e.target.value})}
-        />
-        <br />
-        <input 
-          type="text"
-          placeholder="Enter artist or band name..."
-          value={song.artist}
-          onChange={(e) => setSong({...song, artist: e.target.value})}
-        />
-        <br />
-        <label htmlFor="lyricsArea">Lyrics:</label>
-        <br />
-        <textarea
-          id="lyricsArea"
-          placeholder="Enter lyrics here..."
-          value={song.lyrics}
-          onChange={(e) => setSong({...song, lyrics: e.target.value})}
-          rows="6"
-          cols="30"
-        />
 
         <h2 className='song-title'>
           <strong>
