@@ -2,34 +2,14 @@ require ('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const songsRouter = require('./routes/songs');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const Song = require('./models/Song');
-
-// Add a new song
-app.post('/songs', async (req, res) => {
-  try {
-    const newSong = new Song(req.body);
-    await newSong.save();
-    res.status(201).json(newSong);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Get all songs
-app.get('/songs', async (req, res) => {
-  try {
-    const songs = await Song.find();
-    res.json(songs);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+app.use('/api/songs', songsRouter);
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
