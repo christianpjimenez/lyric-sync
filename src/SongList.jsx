@@ -34,3 +34,5 @@ function songList() {
         </div>
     );
 }
+
+export default songList;
