@@ -9,7 +9,7 @@ function SongList() {
         const loadSongs = async () => {
             try {
                 const response = await fetchSongs();
-                setSongs(response);
+                setSongs(response.data);
             } catch (error) {
                 console.error("Error fetching songs:", error);
             } finally {
