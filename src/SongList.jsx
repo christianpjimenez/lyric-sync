@@ -1,7 +1,7 @@
 import { useEffect, useState} from "react";
 import {fetchSongs} from "./api/lyrics";
 
-function songList() {
+function SongList() {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -9,7 +9,7 @@ function songList() {
         const loadSongs = async () => {
             try {
                 const response = await fetchSongs();
-                setSongs(response.data.songs);
+                setSongs(response.data);
             } catch (error) {
                 console.error("Error fetching songs:", error);
             } finally {
@@ -35,4 +35,4 @@ function songList() {
     );
 }
 
-export default songList;
+export default SongList;
