@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = import.meta.VITE_API_URL;
 
 // Fetch all songs
 export const fetchSongs = () => {return axios.get(`${API_URL}/songs`);};
