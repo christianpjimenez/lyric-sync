@@ -17,20 +17,22 @@ function App() {
   return (
     <Router>
 
-      <nav style={{ padding: "10px", background: "#eee" }}>
-        <Link to="/">Home</Link>
-        <Link to="/songs">All Songs</Link>
-        <Link to="/add">Add Song</Link>
-        <Link to="/lyrics">Lyrics</Link>
+      <nav>
+        <button><Link to="/">Home</Link></button>
+        <button><Link to="/songs">All Songs</Link></button>
+        <button><Link to="/add">Add Song</Link></button>
+        <button><Link to="/lyrics">Lyrics</Link></button>
+        <button><Link to="#darkmode">Dark Mode</Link></button>
       </nav>
 
+      <div className="main-content">
       <Routes>
         <Route path="/" element={<Header />} />
         <Route path="/songs" element={<SongList />} />
         <Route path="/add" element={<><LyricInput song={song} setSong={setSong} /> < LyricDisplay song={song} /></>} />
         <Route path="/lyrics" element={<h1>Lyrics</h1>} />
       </Routes>
-      
+      </div>
     </Router>
   )
 }

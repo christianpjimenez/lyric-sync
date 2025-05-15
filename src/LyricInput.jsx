@@ -23,19 +23,27 @@ function LyricInput({song, setSong}) {
     return (
         <div className="card">
             <form onSubmit={handleSubmit}>
+                <label htmlFor="titleInput">Title:</label>
+                <br />
                 <input
                     type="text"
                     placeholder="Enter song title..."
                     value={song.title}
                     onChange={(e) => setSong({...song, title: e.target.value})}
+                    cols="50"
                 />
+                <br />
+                <br />
+                <label htmlFor="artistInput">Artist:</label>
                 <br />
                 <input 
                     type="text"
                     placeholder="Enter artist or band name..."
                     value={song.artist}
                     onChange={(e) => setSong({...song, artist: e.target.value})}
+                    cols="50"
                 />
+                <br />
                 <br />
                 <label htmlFor="lyricsArea">Lyrics:</label>
                 <br />
@@ -44,8 +52,8 @@ function LyricInput({song, setSong}) {
                     placeholder="Enter lyrics here..."
                     value={song.lyrics}
                     onChange={(e) => setSong({...song, lyrics: e.target.value})}
-                    rows="6"
-                    cols="30"
+                    rows="8"
+                    cols="50"
                 />
                 <br />
                 <br />
